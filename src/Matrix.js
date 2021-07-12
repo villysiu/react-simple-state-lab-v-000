@@ -3,13 +3,15 @@ import Cell from './Cell.js'
 
 export default class Matrix extends Component {
 
-  genRow = (vals) => (
-    vals.map(val => <Cell value={val} />) // replace me and render a cell component instead!
-  )
+  genRow = (vals) => {
+    console.log(vals)
+    return vals.map((val, idx) => <Cell key={idx} value={val} />) // replace me and render a cell component instead!
+  }
 
-  genMatrix = () => (
-    this.props.values.map(rowVals => <div className="row">{this.genRow(rowVals)}</div>)
-  )
+  genMatrix = () => {
+    console.log(this.props.values)
+    return this.props.values.map((rowVals, idx) => <div key={idx} className="row">{this.genRow(rowVals)}</div>)
+  }
 
   render() {
     return (
